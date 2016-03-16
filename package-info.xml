@@ -6,7 +6,6 @@
 	<version>0.1</version>
 	<type>modification</type>
 <install>
-	<database>db.php</database>
 	<readme parsebbc="true">license.txt</readme>
 	<modification format="xml" type="file">install.xml</modification>
 </install>
