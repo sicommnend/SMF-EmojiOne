@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+	<id>NEND:emojione</id>
+	<version>0.1</version>
+	<file name="$sourcedir/Subs.php">
+		<operation>
+			<search position="after"><![CDATA[			if (!empty($modSettings['autoLinkUrls']))
+			{
+				// Are we inside tags that should be auto linked?
+				$no_autolink_area = false;
+				if (!empty($open_tags))
+				{
+					foreach ($open_tags as $open_tag)
+						if (in_array($open_tag['tag'], $no_autolink_tags))
+							$no_autolink_area = true;
+				}]]></search>
+			<add><![CDATA[			//Beginning of EmojiOne support
+			preg_match_all('/&#([0-9]{6});/', $data, $matches, PREG_PATTERN_ORDER);
+			if (!empty($matches[0])) {
+				$replaces = array();
+				foreach ($matches[0] as $match => $dec) {
+					$int = substr($dec,2,-1);
+					if ($int >= 127344 && $int <= 128709) {
+						$hex = dechex($int);
+						$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.1/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="smiley" />';
+					}
+				}
+				$data = strtr($data, $replaces);
+			}
+]]></add>
+		</operation>
+	</file>
+</modification>
