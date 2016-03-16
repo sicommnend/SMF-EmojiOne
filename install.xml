@@ -28,6 +28,7 @@
 				}
 				$data = strtr($data, $replaces);
 			}
+
 ]]></add>
 		</operation>
 	</file>
