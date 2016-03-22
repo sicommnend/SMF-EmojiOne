@@ -2,7 +2,7 @@
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>NEND:emojione</id>
-	<version>0.1</version>
+	<version>0.2</version>
 	<file name="$sourcedir/Subs.php">
 		<operation>
 			<search position="after"><![CDATA[			if (!empty($modSettings['autoLinkUrls']))
@@ -16,12 +16,13 @@
 							$no_autolink_area = true;
 				}]]></search>
 			<add><![CDATA[			//Beginning of EmojiOne support
-			preg_match_all('/&#([0-9]{6});/', $data, $matches, PREG_PATTERN_ORDER);
+			$data = mb_encode_numericentity ($data, array (0x1F000, 0x1F9FF, 0, 0x1F9FF,0x02600, 0x027FF, 0, 0x027FF), 'UTF-8');
+			preg_match_all('/&#([0-9]{4,6});/', $data, $matches, PREG_PATTERN_ORDER);
 			if (!empty($matches[0])) {
 				$replaces = array();
 				foreach ($matches[0] as $match => $dec) {
 					$int = substr($dec,2,-1);
-					if ($int >= 127344 && $int <= 128709) {
+					if ($int >= 126976 && $int <= 129535 || $int >= 9728 && $int <= 10239) {
 						$hex = dechex($int);
 						$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.1/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="smiley" />';
 					}
