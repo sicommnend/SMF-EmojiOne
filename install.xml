@@ -2,7 +2,7 @@
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>NEND:emojione</id>
-	<version>0.2</version>
+	<version>0.2.1</version>
 	<file name="$sourcedir/Subs.php">
 		<operation>
 			<search position="after"><![CDATA[			if (!empty($modSettings['autoLinkUrls']))
@@ -30,6 +30,15 @@
 				$data = strtr($data, $replaces);
 			}
 
+]]></add>
+		</operation>
+	</file>
+	<file name="$themedir/css/index.css">
+		<operation>
+			<search position="end"></search>
+			<add><![CDATA[
+/* Max width height Added by EmojiOne */
+img.smiley {max-width:30px;max-height:30px;}
 ]]></add>
 		</operation>
 	</file>
