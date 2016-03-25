@@ -27,13 +27,17 @@
 						if (isset($adec) && isset($replaces[$adec['dec']]) && ($int >= 127995 && $int <= 127999 || $int >= 127462 && $int <= 127487 && $adec['int'] >= 127462 && $adec['int'] <= 127487)) { // Modifiers Color || Flags
 							unset($replaces[$adec['dec']]);
 							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="smiley" />';
+						} elseif (isset($adec) && isset($replaces[$adec['dec']]) && $adec['cnt'] < 4 && ($int >= 128102 && $int <= 128139 && $adec['int'] >= 128102 && $adec['int'] <= 128139 || $int >= 128102 && $int <= 128139 && $adec['int'] == 10084 || $adec['int'] >= 128102 && $adec['int'] <= 128139 && $int == 10084)) { //Family modifiers ??? 2764
+							unset($replaces[$adec['dec']]);
+							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="smiley" />';
 							// Continue the set just incase of more modifiers. :-/
 							$adec['dec'] = $adec['dec'].$dec;
 							$adec['int'] = $int;
-							$adec['hex'] = $adex['hex'].$hex;
+							$adec['hex'] = $adec['hex'].'-'.$hex;
+							$adec['cnt'] = $adec['cnt'] + 1;
 						} else {
 							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="smiley" />';
-							$adec = array('dec' => $dec, 'int' => $int, 'hex' => $hex);
+							$adec = array('dec' => $dec, 'int' => $int, 'hex' => $hex, 'cnt' => 1);
 						}
 					}
 				}
