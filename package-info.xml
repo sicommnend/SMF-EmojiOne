@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<id>NEND:emojione</id>
 	<name>Emoji One</name>
-	<version>0.2.1</version>
+	<version>0.3</version>
 	<type>modification</type>
 <install>
 	<readme parsebbc="true">license.txt</readme>
