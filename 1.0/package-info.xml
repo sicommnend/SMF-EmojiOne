@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<id>NEND:emojione</id>
+	<name>Emoji One</name>
+	<version>1.0</version>
+	<type>modification</type>
+<install>
+	<readme parsebbc="true">license.txt</readme>
+	<modification format="xml" type="file">install.xml</modification>
+</install>
+<uninstall>
+	<modification reverse="true">install.xml</modification>
+</uninstall>
+</package-info>
