@@ -26,9 +26,9 @@
 						$hex = dechex($int);
 						if (isset($adec) && isset($replaces[$adec['dec']]) && ($int >= 127995 && $int <= 127999 || $int >= 127462 && $int <= 127487 && $adec['int'] >= 127462 && $adec['int'] <= 127487)) { // Modifiers Color || Flags
 							unset($replaces[$adec['dec']]);
-							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="smiley" />';
+							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.3/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="smiley" />';
 						} else {
-							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="SM_EmojiOne" />';
+							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.3/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="SM_EmojiOne" />';
 							$adec = array('dec' => $dec, 'int' => $int, 'hex' => $hex);
 						}
 					}
