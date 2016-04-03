@@ -28,7 +28,7 @@
 							unset($replaces[$adec['dec']]);
 							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="smiley" />';
 						} else {
-							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="smiley" />';
+							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.2/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="SM_EmojiOne" />';
 							$adec = array('dec' => $dec, 'int' => $int, 'hex' => $hex);
 						}
 					}
@@ -44,7 +44,7 @@
 			<search position="end"></search>
 			<add><![CDATA[
 /* Max width height Added by EmojiOne */
-img.smiley {max-width:30px;max-height:30px;}
+img.SM_EmojiOne {max-width:30px;max-height:30px;}
 ]]></add>
 		</operation>
 	</file>
