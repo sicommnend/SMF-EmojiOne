@@ -2,7 +2,7 @@
 <!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
 <modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
 	<id>NEND:emojione</id>
-	<version>0.3.1</version>
+	<version>0.3.2</version>
 	<file name="$sourcedir/Subs.php">
 		<operation>
 			<search position="after"><![CDATA[			if (!empty($modSettings['autoLinkUrls']))
@@ -26,9 +26,9 @@
 						$hex = dechex($int);
 						if (isset($adec) && isset($replaces[$adec['dec']]) && ($int >= 127995 && $int <= 127999 || $int >= 127462 && $int <= 127487 && $adec['int'] >= 127462 && $adec['int'] <= 127487)) { // Modifiers Color || Flags
 							unset($replaces[$adec['dec']]);
-							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.3/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="SM_EmojiOne" />';
+							$replaces[$adec['dec'].$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.6/assets/svg/'.$adec['hex'].'-'.$hex.'.svg" alt="'.$adec['dec'].$dec.'" class="SM_EmojiOne" />';
 						} else {
-							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.1.3/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="SM_EmojiOne" />';
+							$replaces[$dec] = '<img src="http://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.6/assets/svg/'.$hex.'.svg" alt="'.$dec.'" class="SM_EmojiOne" />';
 							$adec = array('dec' => $dec, 'int' => $int, 'hex' => $hex);
 						}
 					}
